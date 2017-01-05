@@ -1,0 +1,115 @@
+body
+{
+	background-color: black;
+	/*animation: 3s alternate 0.5s blurry infinite;*/
+}
+
+@keyframes blurry
+{
+	from
+	{
+		filter: blur(1px);
+	} to {
+		filter: blur(2px);
+	}
+}
+
+#ImageBank
+{
+	display: none;
+	visibility: hidden;
+}
+
+#GameCanvas
+{
+	position: fixed;
+	width: 50%;
+	height: 50%;
+	top: 25%;
+	left: 25%;
+	border-style: double;
+	border-color: red;
+	font-family: 'Press Start 2P', cursive;
+}
+
+#GameShader
+{
+	position: fixed;
+	width: 55%;
+	height: 55%;
+	top: 23%;
+	left: 23%;
+	z-index: 2;
+	box-shadow: inset 10px -6px 204px 55px rgba(0,0,0,0.65);
+}
+
+#GameLogo
+{
+	position: fixed;
+	width: 15%;
+	height: 10%;
+	left: 42%;
+}
+
+.GameMotto
+{
+	position: absolute;
+	top: 15%;
+	left: 39%;
+	text-align: center;
+}
+
+.GreenText
+{
+	color: lime;
+}
+
+.RedText
+{
+	color: red;
+}
+
+@keyframes GameMottoGTR
+{
+	from
+	{
+		color: rgba(0, 255, 0);
+	} to {
+		color: rgba(255, 0, 0);
+	}
+	
+	from
+	{
+		color: rgba(255, 0, 0);
+	} to {
+		color: rgba(0, 255, 0);
+	}
+}
+
+.TextCentered
+{
+	position: absolute;
+	text-align: center;
+}
+
+.TextCentered_Rel
+{
+	position: relative;
+	top: 80%;
+	color: lime;
+	text-align: center;
+}
+
+#Meaning
+{
+	position: fixed;
+	top: 20%;
+	left: 42%;
+}
+
+#Truth
+{
+	position: fixed;
+	top: 80%;
+	left: 64%;
+}

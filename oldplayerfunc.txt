@@ -1,0 +1,38 @@
+function Player()
+{
+	this.EntityTag = "Player";
+	this.SprLoc = document.getElementById("ENTITIES_FULL");
+	this.isGlitched = 0;
+	this.XLoc = 1;
+	this.YLoc = 111;
+	this.XVel = 0;
+	this.YVel = 0;
+	this.EntitySpeed = 2.5;
+	this.EntityWidth = 24;
+	this.EntityHeight = 24;
+	this.GarbageMethod = -1;
+	
+	/*
+	* 0: Walking or doing anything but jumping or falling.
+	* 1: Jumping up.
+	* 2: Falling down.
+	* Never forget the Intel Tri-bool: The variable that litterally broke the English language.
+	*/
+	this.jumpFrame = 0;
+	this.jumpTimer = 0;
+	
+	/*Animation Sets
+	* 1: Left
+	* 2: Right
+	* 3: Jumping
+	* 4: Falling
+	*/
+	//Format: ROW = AnimationFrame + 2; COL = ROW + 1;
+	this.AnimationTimer = setInterval(animateFrame, 60);
+	this.AnimationSet = 1;
+	this.AnimationFrame = 1;
+	this.AS_Left = [0, 0, 26, 0];
+	this.AS_Right = [];
+	this.AS_Jumping = [];
+	this.AS_Falling = [];
+}

@@ -1,0 +1,76 @@
+<html lang="en-us">
+	<head>
+		<link rel="stylesheet" href="Stylesheet.css" type="text/css" />
+		<link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
+		<meta charset="UTF-8"></meta>
+		<title>MissileFall: Zero</title>
+	</head>
+	<body onload="initGame();">
+	<img id="GameLogo" src="http://www.missilefall.com/MissileFall/Sprites/MissileFall_Zero.png" />
+	<div class="TextCentered GameMotto">
+		<span class="GreenText">welcome to a new world;</span><span class="RedText">blɿow ɘʇɒƨ ɒ</span>
+	</div>
+	<script src="GameScript.js"></script>
+		<div id="GameContainer">
+			<canvas id="GameCanvas" onmousemove="updateMouseCords(event);">Sorry, your browser from 1998 does not support the HTML5 canvas element.</canvas>
+		</div>
+		<div class="TextCentered_Rel">Menu options are chosen with the number keys.</div>
+		<div class="TextCentered_Rel">Better learn the controls fast!</div>
+		<br />
+		<div class="TextCentered_Rel">
+		You are the test subject of a top-secret projected made as a backup in the event the MissileFall project fails.
+		<br>
+		You live in a virtual world which, in case of failure, will contain the entire human race.
+		<br>
+		You live among AI testers. Are you still you?
+		<br>
+		But some do not agree in the idea to play God. You're about to meet one.
+		</div>
+		<br />
+		<div class="TextCentered_Rel">
+			[LAUNCHED (BETA): 1/1/2017] -- [LAST UPDATED: 1/2/2017]
+		</div>
+		<div id="GameShader"></div>
+		<div id="ImageBank" onload="console.log('ImageBank loaded successfully.');">
+			<div id="Sprites_Entities">
+				<!--Moving or living things, such as the player, enemies, etc.-->
+				<img id="ENTITIES_FULL" src="Sprites/full_creatures.png"></img>
+			</div>
+			<div id="Sprites_Shaders">
+				<!--Shaders for the screen or other sprites.-->
+				<img id="SCREENEFFECT_STATIC1" src="Shaders/ScreenStatic.png" />
+				<img id="SCREENEFFECT_STATIC2" src="Shaders/ScreenStatic2.png" />
+				<img id="SCREENEFFECT_STATIC3" src="Shaders/ScreenStatic3.png" />
+				<img id="SCREENEFFECT_STATIC4" src="Shaders/ScreenStatic4.png" />
+			</div>
+			<div id="Sprites_Objects">
+				<!--Things such as pickups, power-ups, etc.-->
+				<!--<img id="HEALTHPACK" src="Sprites/Objects/spr_obj_04.png"></img>-->
+			</div>
+			<div id="Sprites_Weapons">
+				<!--Sprites for weapons. Seperated from Objects to make it more legible.-->
+				<!--<img id="WEAPON01" src="Sprites/Items/spr_obj_01.png"></img>-->
+			</div>
+			<div id="Sprites_Enviroment">
+				<!--Sprites in the enviroment, such as panels, buildings, etc.-->
+				<img id="TILES_FULL" src="Sprites/Tiles/SprSheet_Tiles.png" />
+				<img id="SPECIAL_FULL" src="Sprites/Effects/SprSheet_Fx.png" />
+				<img id="FIREBALL_FULL" src="Sprites/Effects/SprSheet_Fireball.png" />
+			</div>
+			<div id="Sprites_GUI">
+				<img id="GUI_FULL" src="Sprites/UI/SprSheet_GUI.png" />
+			</div>
+			<img id="SUNSET_TESTBG" src="Sprites/Tiles/main_background.png" />
+			<img id="SYSTEMTHREAD_BG" src="Sprites/Tiles/SYSTEMTHREAD_BG.png" />
+		</div>
+		<!--
+		<div id="AudioBank">
+			<audio id="GameMusic" autoplay>
+				<source src="Audio/Music/STARTMENU.mp3" type="audio/mp3"></source>
+			</audio>
+		</div>
+		-->
+		<p id="Meaning">You will never understand.</p>
+		<p id="Truth">Enjoy ignorance, for it is the only time one can truly be happy.</p>
+	</body>
+</html>
