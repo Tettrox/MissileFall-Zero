@@ -407,6 +407,7 @@ class Player extends Entity
 		} else {
 			console.log("***WARNING***: Invalid argument provided for updating player animation set. [updatePlayerASet]");
 		}
+		this.AnimateSprite();
 	}
 	
 	firePlayerWeapon()
@@ -1388,9 +1389,6 @@ function drawDialog()
 
 function drawScreen()
 {
-	//GameCanvasCxt.fillStyle = GameCanvasCxt.createPattern(document.getElementById(Entities[i].getSprite()), "repeat");
-	//GameCanvasCxt.fillRect(0, 0, GameCanvas.width, GameCanvas.height);
-	
 	for (var i = 0; i < Entities.length; i++)
 	{
 		if (Entities[i].EntityTag == "BackgroundFireball" && SubGameMode != 6)
@@ -1399,6 +1397,7 @@ function drawScreen()
 		}
 	}
 	
+	//Draw correct background.
 	if (GameState == 1)
 	{
 		GameCanvasCxt.fillStyle = "#FF0000";
@@ -1429,13 +1428,19 @@ function drawScreen()
 	}
 	drawMenus();
 	
+	//Draw all entities.
 	for (var i = 0; i < Entities.length; i++)
 	{
 		if (Entities[i].isGlitched == 1)
 		{
 			GameCanvasCxt.drawImage(Entities[i].getSprite(), getRand(1, 346), getRand(1, 853), Entities[i].EntityWidth, Entities[i].EntityHeight, Entities[i].getXLoc(), Entities[i].getYLoc(), Entities[i].EntityWidth, Entities[i].EntityHeight);
 		} else if (Entities[i].EntityTag != "BackgroundFireball" && Entities[i].EntityTag != "Player") {
-			GameCanvasCxt.drawImage(Entities[i].getSprite(), Entities[i].ClipX, Entities[i].ClipY, Entities[i].EntityWidth, Entities[i].EntityHeight, Entities[i].getXLoc(), Entities[i].getYLoc(), Entities[i].EntityWidth, Entities[i].EntityHeight);
+			if (Entities[i].EntityTag == "BlockBar")
+			{
+				GameCanvasCxt.drawImage(Entities[i].getSprite(), 168, 288, 72, 24, Entities[i].getXLoc(), Entities[i].getYLoc(), Entities[i].EntityWidth, Entities[i].EntityHeight);
+			} else {
+				GameCanvasCxt.drawImage(Entities[i].getSprite(), Entities[i].ClipX, Entities[i].ClipY, Entities[i].EntityWidth, Entities[i].EntityHeight, Entities[i].getXLoc(), Entities[i].getYLoc(), Entities[i].EntityWidth, Entities[i].EntityHeight);
+			}
 		}
 	}
 	
@@ -1542,7 +1547,7 @@ function readControlsDown(e)
 				Entities[findPlayer()].XVel = -Entities[findPlayer()].EntitySpeed;
 				Entities[findPlayer()].updatePlayerASet("Left");
 			}
-			//Entities[findPlayer()].AnimateSprite();
+			Entities[findPlayer()].AnimateSprite();
 			break;
 		//S
 		case 83:
@@ -1555,7 +1560,7 @@ function readControlsDown(e)
 				Entities[findPlayer()].XVel = Entities[findPlayer()].EntitySpeed;
 				Entities[findPlayer()].updatePlayerASet("Right");
 			}
-			//Entities[findPlayer()].AnimateSprite();
+			Entities[findPlayer()].AnimateSprite();
 			break;
 		case 32:
 			if (Entities[findPlayer()].CurrentWeapon != "Pistol")
@@ -1654,6 +1659,7 @@ function doCollisions()
 	}
 }
 
+//Runs on a timer to collect any entity not applying to its GarbageMethod variable.
 function GarbageCollector()
 {
 	for (var i = 0; i < Entities.length; i++)
