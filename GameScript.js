@@ -16,10 +16,6 @@ var GameCanvasCxt;
 
 */
 
-/* -=Bug List=-
-*Character missing in production build of level 4 cutscene.
-*/
-
 /*
  *0: Start menu.
  *1: In-game.
@@ -45,6 +41,8 @@ var MenuID = "STARTMENU";
  * Essentially 'continue from'. Begins at 0.
  * ==FOR SURVIVAL==
  * 1: God-mode.
+ * ==FOR ROM==
+ * Continue from, but starts at 11.
 */
 var SubGameMode = 0;
 
@@ -892,6 +890,18 @@ function drawMenus()
 						PlaySFX = 0;
 						break;
 				}
+			} else if (MenuID == "ROM_MENU") {
+				GameCanvasCxt.drawImage(document.getElementById("GUI_FULL"), 168, 120, 72, 32, 15, 10, 275, 140);
+				GameCanvasCxt.font = "7px 'Press Start 2P'";
+				GameCanvasCxt.fillStyle = "#00FF00";
+				GameCanvasCxt.fillText("SELECT_ROM_ADDRESS", 90, 45);
+				GameCanvasCxt.fillText("0x01:Memories", 30, 75);
+				GameCanvasCxt.fillText("0x02:[Corrupted]", 160, 75);
+				GameCanvasCxt.fillText("0x03:[Corrupted]", 30, 95);
+				GameCanvasCxt.fillText("0x04:[Corrupted]", 160, 95);
+				GameCanvasCxt.fillText("0x05:[Corrupted]", 30, 115);
+				GameCanvasCxt.fillText("0x06:[Corrupted]", 160, 115);
+				GameCanvasCxt.fillText("0x07:[Corrupted]", 95, 135);
 			}
 		}
 	}
@@ -1900,6 +1910,7 @@ function doMenuInput(KeyPressed)
 			//Each number corresponds to the appropriate core number. ex. Core01 is 1, Core02 is 2, etc.
 			switch(KeyString)
 			{
+				//Core01:[Corrupted]
 				case "1":
 					/*
 					console.log("LOADING:CORE01");
@@ -1909,6 +1920,7 @@ function doMenuInput(KeyPressed)
 					break;
 					*/
 					break;
+				//Core02:Illusions
 				case "2":
 					console.log("LOADING:CORE02");
 					GameMode = 1;
@@ -1920,6 +1932,7 @@ function doMenuInput(KeyPressed)
 					setMusic("MAINGAME");
 					EnemySpawning = 1;
 					break;
+				//Core03:Axiom
 				case "3":
 					console.log("LOADING:CORE03");
 					setMusic("PEACEFUL");
@@ -1931,6 +1944,7 @@ function doMenuInput(KeyPressed)
 					MenuID = "NONE";
 					EnemySpawning = 0;
 					break;
+				//Core04:Sys_Thread
 				case "4":
 					Entities[findPlayer()].YLoc = 115;
 					Entities[findPlayer()].XLoc = 250;
@@ -1947,6 +1961,7 @@ function doMenuInput(KeyPressed)
 					ControlsLocked = 1;
 					Entities.push(new SNR());
 					break;
+				//Core05:Inside
 				case "5":
 					console.log("LOADING:CORE05");
 					setMusic("MAINGAME");
@@ -1957,6 +1972,7 @@ function doMenuInput(KeyPressed)
 					CutsceneTimer = setInterval(countCutsceneFrames, 1000);
 					EnemySpawning = 1;
 					break;
+				//Core06:Self-Destruct
 				case "6":
 					console.log("LOADING:CORE06");
 					setMusic("MAINGAME");
@@ -1967,14 +1983,22 @@ function doMenuInput(KeyPressed)
 					CutsceneTimer = setInterval(countCutsceneFrames, 1000);
 					EnemySpawning = 0;
 					break;
+				//[Undefined]
 				case "7":
 					console.log("LOADING:CORE07");
 					setMusic("MAINGAME");
 					break;
+				//[Unused] Ending battle after enemy spawning in Core06.
 				case "8":
 					console.log("LOADING:CORE08");
 					setMusic("MAINGAME");
 					console.log("(؛ ˙ʇɐdʇɐɯ 'buıʇıɐʍ ǝq ןן,ı")
+					break;
+				//ROM Menu.
+				case "9":
+					console.log("ROM Menu accessed.");
+					setMusic("MAINGAME");
+					MenuID = "ROM_MENU";
 					break;
 			}
 		} else if (MenuID == "ABOUT") {
@@ -2009,6 +2033,22 @@ function doMenuInput(KeyPressed)
 				case "8":
 					GameState = 0;
 					MenuID = "STARTMENU";
+					break;
+			}
+		} else if (MenuID == "ROM_MENU") {
+			switch (KeyString)
+			{
+				//Return to Core Select screen.
+				case "9":
+					MenuID = "CORE_SELECT";
+					console.log("Loading Core Menu...");
+					break;
+				//ROM0x01:Memories
+				case "1":
+					console.log("LOADING:ROM0x01");
+					MenuID = "NONE";
+					GameState = 1;
+					SubGameMode = 11;
 					break;
 			}
 		}
