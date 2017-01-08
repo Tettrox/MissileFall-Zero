@@ -750,6 +750,89 @@ class BackgroundFireball extends Entity
 	}
 }
 
+//Good memory. Simply disappears upon being approached.
+class Memory extends Entity
+{
+	constructor(newX, newY, newCDir = 0)
+	{
+		super();
+		this.EntityTag = "Memory";
+		this.SprLoc = document.getElementById("Memories_Good");
+		this.GarbageMethod = 3;
+		this.isGlitched = 0;
+		this.AnimationFrameMax = 4;
+		this.EntityWidth = 32;
+		this.EntityHeight = 32;
+		this.EntitySpeed = 2;
+		this.AS_Left = [new Point(0, 32), new Point(32, 32), new Point(64, 32), new Point(96, 32)];
+		this.AS_Right = [new Point(0, 0), new Point(32, 0), new Point(64, 0), new Point(96, 0)];
+		this.AnimationTimer = setInterval(this.AnimateSprite.bind(this), 125);
+		
+		//0 is right, 1 is left.
+		this.ChargeDirection = newCDir;
+		if (this.ChargeDirection == 0)
+			this.AnimationSet = 2;
+		else
+			this.AnimationSet = 1;
+		this.XLoc = newX;
+		this.YLoc = newY;
+		this.YVel = -0.8;
+		//this.doAI.bind(this);
+	}
+	
+	//IF THERE'S AN ISSUE WITH MOVEMENT CHECK HERE!!!!
+	doAI()
+	{
+		if (this.YLoc < Entities[findPlayer()].YLoc)
+		{
+			if (this.ChargeDirection == 0)
+			{
+				this.XVel = this.EntitySpeed;
+			} else {
+				this.XVel = -this.EntitySpeed;
+			}
+		}
+	}
+}
+
+class EvilMemory extends Entity
+{
+	constructor()
+	{
+		super();
+		this.EntityTag = "EvilMemory";
+		this.SprLoc = document.getElementById("Memories_Bad");
+		GarbageMethod = 3;
+		this.isGlitched = 0;
+		this.AnimationSet = 2;
+		this.AnimationFrameMax = 4;
+		this.EntityWidth = 32;
+		this.EntityHeight = 32;
+		this.AS_Left = [new Point(0, 32), new Point(32, 32), new Point(64, 32), new Point(96, 0)];
+		this.AS_Right = [new Point(0, 0), new Point(32, 0), new Point(64, 0), new Point(96, 0)];
+		this.AnimationTimer = setInterval(this.AnimateSprite.bind(this), 125);
+		
+		this.doAI.bind(this);
+	}
+	
+	//Currently a duplicate of Charger/Brute AI with minor changes.
+	doAI()
+	{
+		//Activate if player is on the say Y-Level as the BadMemory.
+		if (Entities[findPlayer()].YLoc > this.YLoc)
+		{
+			if (Entities[findPlayer()].XLoc < this.XLoc)
+			{
+				this.XVel = -this.EntitySpeed;
+				this.AnimationSet = 1;
+			} else {
+				this.AnimationSet = 2;
+				this.XVel = this.EntitySpeed;
+			}
+		}
+	}
+}
+
 //Returns a random int from randMin (Minimum) to randMax (Maximum).
 function getRand(randMin, randMax)
 {
@@ -891,12 +974,12 @@ function drawMenus()
 						break;
 				}
 			} else if (MenuID == "ROM_MENU") {
-				GameCanvasCxt.drawImage(document.getElementById("GUI_FULL"), 168, 120, 72, 32, 15, 10, 275, 140);
 				GameCanvasCxt.font = "7px 'Press Start 2P'";
+				GameCanvasCxt.drawImage(document.getElementById("GUI_FULL"), 168, 120, 72, 32, 15, 10, 275, 140);
 				GameCanvasCxt.fillStyle = "#00FF00";
 				GameCanvasCxt.fillText("SELECT_ROM_ADDRESS", 90, 45);
 				GameCanvasCxt.fillText("0x01:Memories", 30, 75);
-				GameCanvasCxt.fillText("0x02:[Corrupted]", 160, 75);
+				GameCanvasCxt.fillText("0x02:Fire", 160, 75);
 				GameCanvasCxt.fillText("0x03:[Corrupted]", 30, 95);
 				GameCanvasCxt.fillText("0x04:[Corrupted]", 160, 95);
 				GameCanvasCxt.fillText("0x05:[Corrupted]", 30, 115);
@@ -1401,7 +1484,7 @@ function drawScreen()
 {
 	for (var i = 0; i < Entities.length; i++)
 	{
-		if (Entities[i].EntityTag == "BackgroundFireball" && SubGameMode != 6)
+		if (Entities[i].EntityTag == "BackgroundFireball" && SubGameMode != 6 && MenuID != "ROM_MENU")
 		{
 			GameCanvasCxt.drawImage(Entities[i].getSprite(), Entities[i].ClipX, Entities[i].ClipY, Entities[i].EntityWidth, Entities[i].EntityHeight, Entities[i].getXLoc(), Entities[i].getYLoc(), Entities[i].EntityWidth, Entities[i].EntityHeight);
 		}
@@ -1804,12 +1887,32 @@ function spawnEnemy()
 {
 	if (GameState == 1 && EnemySpawning == 1)
 	{
-		var EnemyToSpawn = getRand(0, 2);
-		if (EnemyToSpawn == 0)
+		if (SubGameMode != 11)
 		{
-			Entities.push(new EnemyPortal(Math.floor(Math.random() * GameCanvas.width), Math.floor(Math.random() * GameCanvas.height), "EnemyGrunt"));
+			var EnemyToSpawn = getRand(0, 2);
+			if (EnemyToSpawn == 0)
+			{
+				Entities.push(new EnemyPortal(Math.floor(Math.random() * GameCanvas.width), Math.floor(Math.random() * GameCanvas.height), "EnemyGrunt"));
+			} else {
+				Entities.push(new EnemyPortal(Math.floor(Math.random() * GameCanvas.width), Math.floor(Math.random() * GameCanvas.height), "EnemyBrute"));
+			}
 		} else {
-			Entities.push(new EnemyPortal(Math.floor(Math.random() * GameCanvas.width), Math.floor(Math.random() * GameCanvas.height), "EnemyBrute"));
+			for (var i = 0; i < Entities.length; i++)
+			{
+				//This is not how I wanted to do it, however there is an issue with the garbage collector that prevents my prefered method.
+				if (Entities[i].EntityTag == "BlockBar")
+				{
+					if (getRand(0, 10) == 2)
+					{
+						if (getRand(0, 2) == 1)
+						{
+							Entities.push(new Memory(GameCanvas.width - 32, Entities[i].YLoc - 32, 1));
+						} else {
+							Entities.push(new Memory(0, Entities[i].YLoc - 32));
+						}
+					}
+				}
+			}
 		}
 	}
 }
