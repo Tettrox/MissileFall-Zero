@@ -53,10 +53,16 @@ body
 
 .GameMotto
 {
-	position: absolute;
+	position: relative;
 	top: 15%;
-	left: 39%;
 	text-align: center;
+}
+
+.VerticalAlign
+{
+	display: flex;
+	align-items: center;
+	justify-content: center;
 }
 
 .GreenText
