@@ -6,30 +6,27 @@
 		<title>MissileFall: Zero</title>
 	</head>
 	<body onload="initGame();">
-	<img id="GameLogo" src="http://www.missilefall.com/MissileFall/Sprites/MissileFall_Zero.png" />
-	<div class="VerticalAlign GameMotto">
-		<span class="GreenText">welcome to a new world;</span><span class="RedText">blɿow ɘʇɒƨ ɒ</span>
-	</div>
-	<script src="GameScript.js"></script>
+		<img id="GameLogo" src="http://www.missilefall.com/MissileFall/Sprites/MissileFall_Zero.png" />
+		<div class="VerticalAlign GameMotto">
+			<span class="GreenText">welcome to a new world;</span><span class="RedText">blɿow ɘʇɒƨ ɒ</span>
+		</div>
+		<script src="GameScript.js"></script>
 		<div id="GameContainer">
-			<canvas id="GameCanvas" onmousemove="updateMouseCords(event);">Sorry, your browser from 1998 does not support the HTML5 canvas element.</canvas>
+			<canvas id="GameCanvas" class="VerticalAlign" onmousemove="updateMouseCords(event);">Sorry, your browser from 1998 does not support the HTML5 canvas element.</canvas>
 		</div>
 		<div class="TextCentered_Rel">Menu options are chosen with the number keys.</div>
 		<div class="TextCentered_Rel">Better learn the controls fast!</div>
 		<br />
 		<div class="TextCentered_Rel">
-		You are the test subject of a top-secret projected made as a backup in the event the MissileFall project fails.
+		You are the test subject of a top-secret projecte made as a backup in the event the MissileFall project fails.
 		<br>
-		You live in a virtual world which, in case of failure, will contain the entire human race.
+		You live in a virtual world which, if the MissileFall project fails, will contain the entire human race.
 		<br>
 		You live among AI testers. Are you still you?
 		<br>
-		But some do not agree in the idea to play God. You're about to meet one.
+		But some do not agree with the idea to play God. You're about to meet one.
 		</div>
 		<br />
-		<div class="TextCentered_Rel">
-			<a href="https://github.com/Tettrox/MissileFall-Zero">[Click here for Github and Update log.]</a>
-		</div>
 		<div id="GameShader"></div>
 		<div id="ImageBank" onload="console.log('ImageBank loaded successfully.');">
 			<div id="Sprites_Entities">
@@ -74,5 +71,6 @@
 		-->
 		<p id="Meaning">You will never understand.</p>
 		<p id="Truth">Enjoy ignorance, for it is the only time one can truly be happy.</p>
+		<a href="https://github.com/Tettrox/MissileFall-Zero"><img src="GitHub-Mark-Light-32px.png" class="Bind_BottomRight"></img></a>
 	</body>
 </html>
