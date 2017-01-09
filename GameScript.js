@@ -753,7 +753,7 @@ class BackgroundFireball extends Entity
 //Good memory. Simply disappears upon being approached.
 class Memory extends Entity
 {
-	constructor(newX, newY, newCDir = 0)
+	constructor(newX, newY, newAnimDir = 0)
 	{
 		super();
 		this.EntityTag = "Memory";
@@ -769,8 +769,7 @@ class Memory extends Entity
 		this.AnimationTimer = setInterval(this.AnimateSprite.bind(this), 125);
 		
 		//0 is right, 1 is left.
-		this.ChargeDirection = newCDir;
-		if (this.ChargeDirection == 0)
+		if (newAnimDir == 0)
 			this.AnimationSet = 2;
 		else
 			this.AnimationSet = 1;
@@ -780,24 +779,15 @@ class Memory extends Entity
 		//this.doAI.bind(this);
 	}
 	
-	//IF THERE'S AN ISSUE WITH MOVEMENT CHECK HERE!!!!
 	doAI()
 	{
-		if (this.YLoc < Entities[findPlayer()].YLoc)
-		{
-			if (this.ChargeDirection == 0)
-			{
-				this.XVel = this.EntitySpeed;
-			} else {
-				this.XVel = -this.EntitySpeed;
-			}
-		}
+		
 	}
 }
 
 class EvilMemory extends Entity
 {
-	constructor()
+	constructor(newX, newY, ChargeDirection = 0)
 	{
 		super();
 		this.EntityTag = "EvilMemory";
@@ -808,7 +798,7 @@ class EvilMemory extends Entity
 		this.AnimationFrameMax = 4;
 		this.EntityWidth = 32;
 		this.EntityHeight = 32;
-		this.AS_Left = [new Point(0, 32), new Point(32, 32), new Point(64, 32), new Point(96, 0)];
+		this.AS_Left = [new Point(0, 32), new Point(32, 32), new Point(64, 32), new Point(96, 32)];
 		this.AS_Right = [new Point(0, 0), new Point(32, 0), new Point(64, 0), new Point(96, 0)];
 		this.AnimationTimer = setInterval(this.AnimateSprite.bind(this), 125);
 		
@@ -818,16 +808,14 @@ class EvilMemory extends Entity
 	//Currently a duplicate of Charger/Brute AI with minor changes.
 	doAI()
 	{
-		//Activate if player is on the say Y-Level as the BadMemory.
-		if (Entities[findPlayer()].YLoc > this.YLoc)
+		//Activate if player is on the same Y-Level as the BadMemory.
+		if (this.YLoc < Entities[findPlayer()].YLoc)
 		{
-			if (Entities[findPlayer()].XLoc < this.XLoc)
+			if (this.ChargeDirection == 0)
 			{
-				this.XVel = -this.EntitySpeed;
-				this.AnimationSet = 1;
-			} else {
-				this.AnimationSet = 2;
 				this.XVel = this.EntitySpeed;
+			} else {
+				this.XVel = -this.EntitySpeed;
 			}
 		}
 	}
@@ -850,7 +838,7 @@ function drawMenus()
 			GameCanvasCxt.fillStyle = "#000000";
 			GameCanvasCxt.fillRect(0, 0, GameCanvas.width, GameCanvas.height);
 			GameCanvasCxt.fillStyle = "#00FF00";
-			GameCanvasCxt.font = "15px Lucida Console";
+			GameCanvasCxt.font = "9px 'Press Start 2P'";
 			GameCanvasCxt.drawImage(document.getElementById("GameLogo"), (GameCanvas.width / 4), 20);
 			GameCanvasCxt.drawImage(document.getElementById("GUI_FULL"), 168, 120, 72, 32, GameCanvas.width / 4, 80, 150, 60);
 			GameCanvasCxt.fillText("[START]", 120, 100);
@@ -863,7 +851,7 @@ function drawMenus()
 				GameCanvasCxt.fillStyle = "#000000";
 				GameCanvasCxt.fillRect(0, 0, GameCanvas.width, GameCanvas.height);
 				GameCanvasCxt.fillStyle = "#00FFFF";
-				GameCanvasCxt.font = "10px Lucida Console";
+				GameCanvasCxt.font = "6px 'Press Start 2P'";
 				GameCanvasCxt.drawImage(document.getElementById("GUI_FULL"), 168, 120, 72, 32, 15, 10, 275, 140);
 				GameCanvasCxt.fillText("SELECT_TARGET_CORE", 95, 45);
 				GameCanvasCxt.fillText("CORE01:[CORRUPTED]", 30, 75);
@@ -891,7 +879,7 @@ function drawMenus()
 				GameCanvasCxt.fillRect(0, 0, GameCanvas.width, GameCanvas.height);
 				GameCanvasCxt.drawImage(document.getElementById("GUI_FULL"), 168, 120, 72, 32, 15, 10, 275, 140);
 				GameCanvasCxt.fillStyle = "#00FF00";
-				GameCanvasCxt.font = "20px Courier New";
+				GameCanvasCxt.font = "13px 'Press Start 2P'";
 				GameCanvasCxt.fillText("SELECT_LOG_MODE", 55, 45);
 				GameCanvasCxt.fillText("[STORY]", 105, 95);
 				GameCanvasCxt.fillText("[SURVIVAL]", 85, 125);
@@ -1484,7 +1472,8 @@ function drawScreen()
 {
 	for (var i = 0; i < Entities.length; i++)
 	{
-		if (Entities[i].EntityTag == "BackgroundFireball" && SubGameMode != 6 && MenuID != "ROM_MENU")
+		//This is getting to the point where it may be worth it to change it to just not render them during *ANY* menu. Might create pause menu issues, but that would probably be cleaner to solve.
+		if (Entities[i].EntityTag == "BackgroundFireball" && SubGameMode != 6 && MenuID != "ROM_MENU" && MenuID != "ABOUT")
 		{
 			GameCanvasCxt.drawImage(Entities[i].getSprite(), Entities[i].ClipX, Entities[i].ClipY, Entities[i].EntityWidth, Entities[i].EntityHeight, Entities[i].getXLoc(), Entities[i].getYLoc(), Entities[i].EntityWidth, Entities[i].EntityHeight);
 		}
@@ -1547,8 +1536,8 @@ function drawScreen()
 		GameCanvasCxt.drawImage(Entities[findPlayer()].getSprite(), Entities[findPlayer()].ClipX, Entities[findPlayer()].ClipY, Entities[findPlayer()].EntityWidth, Entities[findPlayer()].EntityHeight, Entities[findPlayer()].getXLoc(), Entities[findPlayer()].getYLoc(), Entities[findPlayer()].EntityWidth, Entities[findPlayer()].EntityHeight);
 	} else if (GameState == 2) {
 		GameCanvasCxt.fillStyle = "#00FF00";
-		GameCanvasCxt.font = "11px 'Press Start 2P'";
-		GameCanvasCxt.fillText("Press 'Enter' to return to the Main Menu, or escape to resume.", GameCanvas.width / 2, GameCanvas.height / 2);
+		GameCanvasCxt.font = "8px 'Press Start 2P'";
+		GameCanvasCxt.fillText("Press 'Enter' to quit.", GameCanvas.width / 4, GameCanvas.height / 2);
 	}
 	
 	if (StaticFrame == 1)
@@ -2104,6 +2093,7 @@ function doMenuInput(KeyPressed)
 					MenuID = "ROM_MENU";
 					break;
 			}
+			CutsceneFrames = 0;
 		} else if (MenuID == "ABOUT") {
 			//Since it only has one option, if is just the cleaner way to do it I think.
 			if (KeyString == "1")
@@ -2222,6 +2212,8 @@ function readControlsUp(e)
 		break;
 		//Enter.
 		case 13:
+			//Why was this set to check GameState 5?
+			//Welp, I figured it out. It was to reset a Game Over.
 			if (GameState == 5)
 			{
 				clearInterval(CutsceneTimer);
@@ -2230,6 +2222,15 @@ function readControlsUp(e)
 				GameState = 1;
 				Entities[findPlayer()].EntityHealth = 3;
 				setLock(0);
+			} else if (GameState == 2) {
+				clearInterval(CutsceneTimer);
+				CutsceneFrames = 0;
+				CutsceneTimer = setInterval(countCutsceneFrames, 1000);
+				GameState = 4;
+				Entities[findPlayer()].EntityHealth = 3;
+				setLock(0);
+				MenuID = "CORE_SELECT";
+				SubGameMode = 0;
 			}
 			break;
 		//Everything below this is for menus. Due to some laptops and keyboards not having the number pad, the normal 1-10 keys at the top will be used.
