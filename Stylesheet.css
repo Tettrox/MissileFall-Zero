@@ -65,6 +65,13 @@ body
 	justify-content: center;
 }
 
+.Bind_BottomRight
+{
+	position: fixed;
+	bottom: 0%;
+	right: 0%;
+}
+
 .GreenText
 {
 	color: lime;
