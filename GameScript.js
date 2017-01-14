@@ -2406,15 +2406,18 @@ function readControlsUp(e)
 			break;
 		//Escape.
 		case 27:
-			if (GameState != 2)
+			if (GameMode != 0 && GameState != 4)
 			{
-				setLock(1);
-				GameState = 2;
-				ControlsLocked = 1;
-			} else {
-				setLock(0);
-				GameState = 1;
-				ControlsLocked = 0;
+				if (GameState != 2)
+				{
+					setLock(1);
+					GameState = 2;
+					ControlsLocked = 1;
+				} else {
+					setLock(0);
+					GameState = 1;
+					ControlsLocked = 0;
+				}
 			}
 		break;
 		//Enter.
