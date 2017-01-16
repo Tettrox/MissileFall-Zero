@@ -1028,7 +1028,7 @@ function drawDialog()
 					GameCanvasCxt.fillText("BEHOLD! THE VOICE OF GOD!", (GameCanvas.width / 4), GameCanvas.height - (GameCanvas.height / 5));
 					GameCanvasCxt.fillText("REPENT AND FACE JUSTICE", GameCanvas.width / 4, GameCanvas.height - (GameCanvas.height / 7));
 					GameCanvasCxt.fillText("FOR YOUR UNHOLY EXISTENCE!", GameCanvas.width / 4, GameCanvas.height - (GameCanvas.height / 10));
-				} else if (CutsceneFrames < 40) {
+				} else if (CutsceneFrames < 28) {
 					GameCanvasCxt.drawImage(document.getElementById("GUI_FULL"), 171, 299, 50, 50, (GameCanvas.width / 6) + DialogOffsetX, GameCanvas.height - (GameCanvas.height / 3) + DialogOffsetY, 200, 50);
 					GameCanvasCxt.fillStyle = "#00FF00";
 					GameCanvasCxt.font = "6px 'Press Start 2P'";
@@ -1036,27 +1036,27 @@ function drawDialog()
 					GameCanvasCxt.fillText("OF GOD?! THEN DIE BY THE", GameCanvas.width / 4, GameCanvas.height - (GameCanvas.height / 7));
 					GameCanvasCxt.fillText("HAND OF YOUR OWN SINS!", GameCanvas.width / 4, GameCanvas.height - (GameCanvas.height / 10));
 					EnemySpawning = 1;
-				} else if (CutsceneFrames < 60) {
+				} else if (CutsceneFrames < 36) {
 					GameCanvasCxt.drawImage(document.getElementById("GUI_FULL"), 171, 299, 50, 50, (GameCanvas.width / 6) + DialogOffsetX, GameCanvas.height - (GameCanvas.height / 3) + DialogOffsetY, 200, 50);
 					GameCanvasCxt.fillStyle = "#00FF00";
 					GameCanvasCxt.font = "6px 'Press Start 2P'";
 					GameCanvasCxt.fillText("YOU RUN AS IF YOUR", GameCanvas.width / 4, GameCanvas.height - (GameCanvas.height / 5));
 					GameCanvasCxt.fillText("ACTIONS WILL CHANGE YOUR", GameCanvas.width / 4, GameCanvas.height - (GameCanvas.height / 7));
 					GameCanvasCxt.fillText("FATE! YOU WILL SUBMIT!", GameCanvas.width / 4, GameCanvas.height - (GameCanvas.height / 10));
-				} else if (CutsceneFrames < 80) {
+				} else if (CutsceneFrames < 44) {
 					GameCanvasCxt.drawImage(document.getElementById("GUI_FULL"), 171, 299, 50, 50, (GameCanvas.width / 6) + DialogOffsetX, GameCanvas.height - (GameCanvas.height / 3) + DialogOffsetY, 200, 50);
 					GameCanvasCxt.fillStyle = "#00FF00";
 					GameCanvasCxt.font = "6px 'Press Start 2P'";
 					GameCanvasCxt.fillText("MAY THOSE WHO FELL", GameCanvas.width / 3.8, GameCanvas.height - (GameCanvas.height / 5));
 					GameCanvasCxt.fillText("BEFORE YOU CRUSH", GameCanvas.width / 3.8, GameCanvas.height - (GameCanvas.height / 7));
 					GameCanvasCxt.fillText("YOU FROM WITHIN!!", GameCanvas.width / 3.8, GameCanvas.height - (GameCanvas.height / 10));
-				} else if (CutsceneFrames < 100) {
+				} else if (CutsceneFrames < 52) {
 					GameCanvasCxt.drawImage(document.getElementById("GUI_FULL"), 171, 299, 50, 50, (GameCanvas.width / 6) + DialogOffsetX, GameCanvas.height - (GameCanvas.height / 3) + DialogOffsetY, 200, 50);
 					GameCanvasCxt.fillStyle = "#00FF00";
 					GameCanvasCxt.font = "6px 'Press Start 2P'";
 					GameCanvasCxt.fillText("YOU CAN RUN FOREVER, BUT", GameCanvas.width / 4, GameCanvas.height - (GameCanvas.height / 6));
 					GameCanvasCxt.fillText("YOUR FATE IS SEALED!", GameCanvas.width / 4, GameCanvas.height - (GameCanvas.height / 8));
-				} else if (CutsceneFrames < 110) {
+				} else if (CutsceneFrames < 60) {
 					SubGameMode = 0;
 					MenuID = "CORE_SELECT";
 					GameState = 4;
@@ -1075,7 +1075,7 @@ function drawDialog()
 					GameCanvasCxt.fillText("I've thought about it", GameCanvas.width / 4, GameCanvas.height - (GameCanvas.height / 5));
 					GameCanvasCxt.fillText("more, this artificial", GameCanvas.width / 4, GameCanvas.height - (GameCanvas.height / 7));
 					GameCanvasCxt.fillText("world.", GameCanvas.width / 4, GameCanvas.height - (GameCanvas.height / 10));
-				} else if (CutsceneFrames < 40) {
+				} else if (CutsceneFrames < 28) {
 					GameCanvasCxt.drawImage(document.getElementById("GUI_FULL"), 168, 120, 72, 32, GameCanvas.width / 6, GameCanvas.height - (GameCanvas.height / 3), 200, 50);
 					GameCanvasCxt.fillStyle = "#FF0000";
 					GameCanvasCxt.font = "6px 'Press Start 2P'";
@@ -1083,7 +1083,7 @@ function drawDialog()
 					GameCanvasCxt.fillText("simply to cleanse you", GameCanvas.width / 4, GameCanvas.height - (GameCanvas.height / 7));
 					GameCanvasCxt.fillText("from this world for", GameCanvas.width / 4, GameCanvas.height - (GameCanvas.height / 10));
 					GameCanvasCxt.fillText("refusing reality.", GameCanvas.width / 4, GameCanvas.height - (GameCanvas.height / 20));
-				} else if (CutsceneFrames < 60) {
+				} else if (CutsceneFrames < 36) {
 					GameCanvasCxt.drawImage(document.getElementById("GUI_FULL"), 168, 120, 72, 32, GameCanvas.width / 6, GameCanvas.height - (GameCanvas.height / 3), 200, 50);
 					GameCanvasCxt.fillStyle = "#FF0000";
 					GameCanvasCxt.font = "6px 'Press Start 2P'";
@@ -1091,7 +1091,7 @@ function drawDialog()
 					GameCanvasCxt.fillText("that I can fix all of", GameCanvas.width / 4, GameCanvas.height - (GameCanvas.height / 8));
 					GameCanvasCxt.fillText("this. I have unlimited", GameCanvas.width / 4, GameCanvas.height - (GameCanvas.height / 12));
 					GameCanvasCxt.fillText("power to create and destroy.", GameCanvas.width / 4, GameCanvas.height - (GameCanvas.height / 22));
-				} else if (CutsceneFrames < 80) {
+				} else if (CutsceneFrames < 42) {
 					GameCanvasCxt.drawImage(document.getElementById("GUI_FULL"), 184, 368, 24, 24, GameCanvas.width / 6, GameCanvas.height - (GameCanvas.height / 3), 200, 50);
 					GameCanvasCxt.fillStyle = "#FF0000";
 					GameCanvasCxt.font = "6px 'Press Start 2P'";
@@ -1099,7 +1099,7 @@ function drawDialog()
 					GameCanvasCxt.fillText("CoMpLeTeLy SiNlEsS", GameCanvas.width / 4, GameCanvas.height - (GameCanvas.height / 8));
 					GameCanvasCxt.fillText("wOrLd!", GameCanvas.width / 4, GameCanvas.height - (GameCanvas.height / 12));
 					EnemySpawning = 1;
-				} else if (CutsceneFrames < 180) {
+				} else if (CutsceneFrames < 50) {
 					GameCanvasCxt.drawImage(document.getElementById("GUI_FULL"), 168, 120, 72, 32, GameCanvas.width / 6, GameCanvas.height - (GameCanvas.height / 3), 200, 50);
 					GameCanvasCxt.fillStyle = "#FF0000";
 					GameCanvasCxt.font = "6px 'Press Start 2P'";
@@ -1107,7 +1107,7 @@ function drawDialog()
 					GameCanvasCxt.fillText("knowing how it will", GameCanvas.width / 4, GameCanvas.height - (GameCanvas.height / 8));
 					GameCanvasCxt.fillText("end? Why do you fight", GameCanvas.width / 4, GameCanvas.height - (GameCanvas.height / 12));
 					GameCanvasCxt.fillText("a losing battle?", GameCanvas.width / 4, GameCanvas.height - (GameCanvas.height / 22));
-				} else if (CutsceneFrames < 200) {
+				} else if (CutsceneFrames < 58) {
 					GameCanvasCxt.drawImage(document.getElementById("GUI_FULL"), 168, 120, 72, 32, GameCanvas.width / 6, GameCanvas.height - (GameCanvas.height / 3), 200, 50);
 					GameCanvasCxt.fillStyle = "#00FF00";
 					GameCanvasCxt.font = "6px 'Press Start 2P'";
@@ -1115,7 +1115,7 @@ function drawDialog()
 					GameCanvasCxt.fillText("at the Yin/Yang sign?", GameCanvas.width / 4, GameCanvas.height - (GameCanvas.height / 8));
 					GameCanvasCxt.fillText("On one side, pitch black.", GameCanvas.width / 4, GameCanvas.height - (GameCanvas.height / 12));
 					GameCanvasCxt.fillText("The other, pure white.", GameCanvas.width / 4, GameCanvas.height - (GameCanvas.height / 22));
-				} else if (CutsceneFrames < 220) {
+				} else if (CutsceneFrames < 66) {
 					GameCanvasCxt.drawImage(document.getElementById("GUI_FULL"), 168, 120, 72, 32, GameCanvas.width / 6, GameCanvas.height - (GameCanvas.height / 3), 200, 50);
 					GameCanvasCxt.fillStyle = "#00FF00";
 					GameCanvasCxt.font = "6px 'Press Start 2P'";
@@ -1123,7 +1123,7 @@ function drawDialog()
 					GameCanvasCxt.fillText("It's an axiom. Only", GameCanvas.width / 4, GameCanvas.height - (GameCanvas.height / 8));
 					GameCanvasCxt.fillText("one extreme or the", GameCanvas.width / 4, GameCanvas.height - (GameCanvas.height / 12));
 					GameCanvasCxt.fillText("other.", GameCanvas.width / 4, GameCanvas.height - (GameCanvas.height / 22));
-				} else if (CutsceneFrames < 240) {
+				} else if (CutsceneFrames < 74) {
 					GameCanvasCxt.drawImage(document.getElementById("GUI_FULL"), 168, 120, 72, 32, GameCanvas.width / 6, GameCanvas.height - (GameCanvas.height / 3), 200, 50);
 					GameCanvasCxt.fillStyle = "#00FF00";
 					GameCanvasCxt.font = "6px 'Press Start 2P'";
@@ -1131,20 +1131,20 @@ function drawDialog()
 					GameCanvasCxt.fillText("today, I will die", GameCanvas.width / 4, GameCanvas.height - (GameCanvas.height / 8));
 					GameCanvasCxt.fillText("eventually, either here,", GameCanvas.width / 4, GameCanvas.height - (GameCanvas.height / 12));
 					GameCanvasCxt.fillText("by you, or by something else.", GameCanvas.width / 4, GameCanvas.height - (GameCanvas.height / 22));
-				} else if (CutsceneFrames < 260) {
+				} else if (CutsceneFrames < 82) {
 					GameCanvasCxt.drawImage(document.getElementById("GUI_FULL"), 168, 120, 72, 32, GameCanvas.width / 6, GameCanvas.height - (GameCanvas.height / 3), 200, 50);
 					GameCanvasCxt.fillStyle = "#00FF00";
 					GameCanvasCxt.font = "6px 'Press Start 2P'";
 					GameCanvasCxt.fillText("Either way, it's an", GameCanvas.width / 4, GameCanvas.height - (GameCanvas.height / 5));
 					GameCanvasCxt.fillText("unavoidable extreme.", GameCanvas.width / 4, GameCanvas.height - (GameCanvas.height / 8));
-				} else if (CutsceneFrames < 280) {
+				} else if (CutsceneFrames < 90) {
 					GameCanvasCxt.drawImage(document.getElementById("GUI_FULL"), 168, 120, 72, 32, GameCanvas.width / 6, GameCanvas.height - (GameCanvas.height / 3), 200, 50);
 					GameCanvasCxt.fillStyle = "#FF0000";
 					GameCanvasCxt.font = "6px 'Press Start 2P'";
 					GameCanvasCxt.fillText("Then why do you refuse", GameCanvas.width / 4, GameCanvas.height - (GameCanvas.height / 5));
 					GameCanvasCxt.fillText("to die here?", GameCanvas.width / 4, GameCanvas.height - (GameCanvas.height / 8));
 					GameCanvasCxt.fillText("Would it not be easier?", GameCanvas.width / 4, GameCanvas.height - (GameCanvas.height / 12));
-				} else if (CutceneFrames < 300) {
+				} else if (CutceneFrames < 98) {
 					GameCanvasCxt.drawImage(document.getElementById("GUI_FULL"), 168, 120, 72, 32, GameCanvas.width / 6, GameCanvas.height - (GameCanvas.height / 3), 200, 50);
 					GameCanvasCxt.fillStyle = "#00FF00";
 					GameCanvasCxt.font = "6px 'Press Start 2P'";
@@ -1152,14 +1152,14 @@ function drawDialog()
 					GameCanvasCxt.fillText("always take the enemy", GameCanvas.width / 4, GameCanvas.height - (GameCanvas.height / 8));
 					GameCanvasCxt.fillText("you know over the one", GameCanvas.width / 4, GameCanvas.height - (GameCanvas.height / 12));
 					GameCanvasCxt.fillText("you don't.", GameCanvas.width / 4, GameCanvas.height - (GameCanvas.height / 22));
-				} else if (CutsceneFrames < 320) {
+				} else if (CutsceneFrames < 106) {
 					GameCanvasCxt.drawImage(document.getElementById("GUI_FULL"), 168, 120, 72, 32, GameCanvas.width / 6, GameCanvas.height - (GameCanvas.height / 3), 200, 50);
 					GameCanvasCxt.fillStyle = "#00FF00";
 					GameCanvasCxt.font = "6px 'Press Start 2P'";
 					GameCanvasCxt.fillText("But that's why I will", GameCanvas.width / 4, GameCanvas.height - (GameCanvas.height / 5));
 					GameCanvasCxt.fillText("never stop fighting you:", GameCanvas.width / 4, GameCanvas.height - (GameCanvas.height / 8));
 					GameCanvasCxt.fillText("Because I know who you are.", GameCanvas.width / 4, GameCanvas.height - (GameCanvas.height / 12));
-				} else if (CutsceneFrames < 340) {
+				} else if (CutsceneFrames < 114) {
 					GameCanvasCxt.drawImage(document.getElementById("GUI_FULL"), 168, 120, 72, 32, GameCanvas.width / 6, GameCanvas.height - (GameCanvas.height / 3), 200, 50);
 					GameCanvasCxt.fillStyle = "#00FF00";
 					GameCanvasCxt.font = "6px 'Press Start 2P'";
@@ -1167,13 +1167,13 @@ function drawDialog()
 					GameCanvasCxt.fillText("die, I will do my", GameCanvas.width / 4, GameCanvas.height - (GameCanvas.height / 8));
 					GameCanvasCxt.fillText("damndest to make sure", GameCanvas.width / 4, GameCanvas.height - (GameCanvas.height / 12));
 					GameCanvasCxt.fillText("it isn't by your hand.", GameCanvas.width / 4, GameCanvas.height - (GameCanvas.height / 22));
-				} else if (CutsceneFrames < 360) {
+				} else if (CutsceneFrames < 122) {
 					GameCanvasCxt.drawImage(document.getElementById("GUI_FULL"), 168, 120, 72, 32, GameCanvas.width / 6, GameCanvas.height - (GameCanvas.height / 3), 200, 50);
 					GameCanvasCxt.fillStyle = "#00FF00";
 					GameCanvasCxt.font = "6px 'Press Start 2P'";
 					GameCanvasCxt.fillText("Not for you, not for", GameCanvas.width / 4, GameCanvas.height - (GameCanvas.height / 5));
 					GameCanvasCxt.fillText("anyone else, but for me.", GameCanvas.width / 4, GameCanvas.height - (GameCanvas.height / 8));
-				} else if (CutsceneFrames < 380) {
+				} else if (CutsceneFrames < 130) {
 					GameCanvasCxt.drawImage(document.getElementById("GUI_FULL"), 168, 120, 72, 32, GameCanvas.width / 6, GameCanvas.height - (GameCanvas.height / 3), 200, 50);
 					GameCanvasCxt.fillStyle = "#00FF00";
 					GameCanvasCxt.font = "6px 'Press Start 2P'";
@@ -1181,28 +1181,28 @@ function drawDialog()
 					GameCanvasCxt.fillText("to me than death ever", GameCanvas.width / 4, GameCanvas.height - (GameCanvas.height / 8));
 					GameCanvasCxt.fillText("could, but like Hell will", GameCanvas.width / 4, GameCanvas.height - (GameCanvas.height / 12));
 					GameCanvasCxt.fillText("I let you do the final blow.", GameCanvas.width / 4, GameCanvas.height - (GameCanvas.height / 22));
-				} else if (CutsceneFrames < 390) {
+				} else if (CutsceneFrames < 138) {
 					GameCanvasCxt.drawImage(document.getElementById("GUI_FULL"), 168, 120, 72, 32, GameCanvas.width / 6, GameCanvas.height - (GameCanvas.height / 3), 200, 50);
 					GameCanvasCxt.fillStyle = "#FF0000";
 					GameCanvasCxt.font = "6px 'Press Start 2P'";
 					GameCanvasCxt.fillText("Well, I've come to the", GameCanvas.width / 4, GameCanvas.height - (GameCanvas.height / 5));
 					GameCanvasCxt.fillText("conclusion that, since this", GameCanvas.width / 4, GameCanvas.height - (GameCanvas.height / 7));
 					GameCanvasCxt.fillText("world is now only rubble,", GameCanvas.width / 4, GameCanvas.height - (GameCanvas.height / 10));
-				} else if (CutsceneFrames < 405) {
+				} else if (CutsceneFrames < 146) {
 					GameCanvasCxt.drawImage(document.getElementById("GUI_FULL"), 168, 120, 72, 32, GameCanvas.width / 6, GameCanvas.height - (GameCanvas.height / 3), 200, 50);
 					GameCanvasCxt.fillStyle = "#FF0000";
 					GameCanvasCxt.font = "6px 'Press Start 2P'";
 					GameCanvasCxt.fillText("I will start from scratch.", GameCanvas.width / 4, GameCanvas.height - (GameCanvas.height / 5));
 					GameCanvasCxt.fillText("May you rot with the world of sin", GameCanvas.width / 4, GameCanvas.height - (GameCanvas.height / 7));
 					GameCanvasCxt.fillText("you so desprately clutch to.", GameCanvas.width / 4, GameCanvas.height - (GameCanvas.height / 10));
-				} else if (CutsceneFrames < 415) {
+				} else if (CutsceneFrames < 154) {
 					GameCanvasCxt.drawImage(document.getElementById("GUI_FULL"), 168, 120, 72, 32, GameCanvas.width / 6, GameCanvas.height - (GameCanvas.height / 3), 200, 50);
 					GameCanvasCxt.fillStyle = "#FF0000";
 					GameCanvasCxt.font = "6px 'Press Start 2P'";
 					GameCanvasCxt.fillText("The corruption will", GameCanvas.width / 4, GameCanvas.height - (GameCanvas.height / 5));
 					GameCanvasCxt.fillText("finish of what is left of", GameCanvas.width / 4, GameCanvas.height - (GameCanvas.height / 7));
 					GameCanvasCxt.fillText("your will.", GameCanvas.width / 4, GameCanvas.height - (GameCanvas.height / 10));
-				} else if (CutsceneFrames < 425) {
+				} else if (CutsceneFrames < 162) {
 					SubGameMode = 0;
 					clearInterval(CutsceneTimer);
 					CutsceneFrames = 0;
@@ -1325,7 +1325,7 @@ function drawDialog()
 				}
 				break;
 			case 5:
-				if (CutsceneFrames < 3)
+				if (CutsceneFrames < 5)
 				{
 					GameCanvasCxt.drawImage(document.getElementById("GUI_FULL"), 168, 120, 72, 32, GameCanvas.width / 6, GameCanvas.height - (GameCanvas.height / 3), 200, 50);
 					GameCanvasCxt.fillStyle = "#FFF400";
@@ -2348,6 +2348,24 @@ function doMenuInput(KeyPressed)
 					GameMode = 1;
 					GameState = 1;
 					SubGameMode = 11;
+					CutsceneTimer = setInterval(countCutsceneFrames, 1000);
+					break;
+				//ROM0x02:Artifical
+				case "2":
+					console.log("LOADING:ROM0x02");
+					MenuID = "NONE";
+					GameMode = 1;
+					SubGameMode = 12;
+					GameState = 1;
+					CutsceneTimer = setInterval(countCutsceneFrames, 1000);
+					break;
+				//ROM0x03:Social
+				case "3":
+					console.log("LOADING:ROM0x03");
+					MenuID = "NONE";
+					GameMode = 1;
+					SubGameMode = 13;
+					GameState = 1;
 					CutsceneTimer = setInterval(countCutsceneFrames, 1000);
 					break;
 			}
