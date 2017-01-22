@@ -871,7 +871,7 @@ function drawMenus()
 			GameCanvasCxt.drawImage(document.getElementById("GUI_FULL"), 168, 120, 72, 32, GameCanvas.width / 4, 80, 150, 60);
 			GameCanvasCxt.fillText("[START]", 120, 100);
 			GameCanvasCxt.fillText("[ABOUT]", 120, 115);
-			GameCanvasCxt.fillText("[OPTIONS]", 110, 130);
+			//GameCanvasCxt.fillText("[OPTIONS]", 110, 130);
 			//GameCanvasCxt.drawImage(document.getElementById("GUI_FULL"), 616, 310, 9, 12, parseInt(_MOUSEX - GameCanvas.offsetLeft), parseInt(_MOUSEY - GameCanvas.offsetTop), 9, 12);
 		} else if (GameState == 4) {
 			if (MenuID == "CORE_SELECT")
@@ -1027,14 +1027,14 @@ function drawDialog()
 					GameCanvasCxt.font = "6px 'Press Start 2P'";
 					GameCanvasCxt.fillText("BEHOLD! THE VOICE OF GOD!", (GameCanvas.width / 4), GameCanvas.height - (GameCanvas.height / 5));
 					GameCanvasCxt.fillText("REPENT AND FACE JUSTICE", GameCanvas.width / 4, GameCanvas.height - (GameCanvas.height / 7));
-					GameCanvasCxt.fillText("FOR YOUR UNHOLY EXISTENCE!", GameCanvas.width / 4, GameCanvas.height - (GameCanvas.height / 10));
+					GameCanvasCxt.fillText("FOR YOUR UNHOLY EXISTENCE!", GameCanvas.width / 4, GameCanvas.height - (GameCanvas.height / 11));
 				} else if (CutsceneFrames < 28) {
 					GameCanvasCxt.drawImage(document.getElementById("GUI_FULL"), 171, 299, 50, 50, (GameCanvas.width / 6) + DialogOffsetX, GameCanvas.height - (GameCanvas.height / 3) + DialogOffsetY, 200, 50);
 					GameCanvasCxt.fillStyle = "#00FF00";
 					GameCanvasCxt.font = "6px 'Press Start 2P'";
 					GameCanvasCxt.fillText("YOU DARE REJECT THE WILL", GameCanvas.width / 4, GameCanvas.height - (GameCanvas.height / 5));
 					GameCanvasCxt.fillText("OF GOD?! THEN DIE BY THE", GameCanvas.width / 4, GameCanvas.height - (GameCanvas.height / 7));
-					GameCanvasCxt.fillText("HAND OF YOUR OWN SINS!", GameCanvas.width / 4, GameCanvas.height - (GameCanvas.height / 10));
+					GameCanvasCxt.fillText("HAND OF YOUR OWN SINS!", GameCanvas.width / 4, GameCanvas.height - (GameCanvas.height / 11));
 					EnemySpawning = 1;
 				} else if (CutsceneFrames < 36) {
 					GameCanvasCxt.drawImage(document.getElementById("GUI_FULL"), 171, 299, 50, 50, (GameCanvas.width / 6) + DialogOffsetX, GameCanvas.height - (GameCanvas.height / 3) + DialogOffsetY, 200, 50);
@@ -1042,20 +1042,20 @@ function drawDialog()
 					GameCanvasCxt.font = "6px 'Press Start 2P'";
 					GameCanvasCxt.fillText("YOU RUN AS IF YOUR", GameCanvas.width / 4, GameCanvas.height - (GameCanvas.height / 5));
 					GameCanvasCxt.fillText("ACTIONS WILL CHANGE YOUR", GameCanvas.width / 4, GameCanvas.height - (GameCanvas.height / 7));
-					GameCanvasCxt.fillText("FATE! YOU WILL SUBMIT!", GameCanvas.width / 4, GameCanvas.height - (GameCanvas.height / 10));
+					GameCanvasCxt.fillText("FATE! YOU WILL SUBMIT!", GameCanvas.width / 4, GameCanvas.height - (GameCanvas.height / 11));
 				} else if (CutsceneFrames < 44) {
 					GameCanvasCxt.drawImage(document.getElementById("GUI_FULL"), 171, 299, 50, 50, (GameCanvas.width / 6) + DialogOffsetX, GameCanvas.height - (GameCanvas.height / 3) + DialogOffsetY, 200, 50);
 					GameCanvasCxt.fillStyle = "#00FF00";
 					GameCanvasCxt.font = "6px 'Press Start 2P'";
 					GameCanvasCxt.fillText("MAY THOSE WHO FELL", GameCanvas.width / 3.8, GameCanvas.height - (GameCanvas.height / 5));
 					GameCanvasCxt.fillText("BEFORE YOU CRUSH", GameCanvas.width / 3.8, GameCanvas.height - (GameCanvas.height / 7));
-					GameCanvasCxt.fillText("YOU FROM WITHIN!!", GameCanvas.width / 3.8, GameCanvas.height - (GameCanvas.height / 10));
+					GameCanvasCxt.fillText("YOU FROM WITHIN!!", GameCanvas.width / 3.8, GameCanvas.height - (GameCanvas.height / 11));
 				} else if (CutsceneFrames < 52) {
 					GameCanvasCxt.drawImage(document.getElementById("GUI_FULL"), 171, 299, 50, 50, (GameCanvas.width / 6) + DialogOffsetX, GameCanvas.height - (GameCanvas.height / 3) + DialogOffsetY, 200, 50);
 					GameCanvasCxt.fillStyle = "#00FF00";
 					GameCanvasCxt.font = "6px 'Press Start 2P'";
 					GameCanvasCxt.fillText("YOU CAN RUN FOREVER, BUT", GameCanvas.width / 4, GameCanvas.height - (GameCanvas.height / 6));
-					GameCanvasCxt.fillText("YOUR FATE IS SEALED!", GameCanvas.width / 4, GameCanvas.height - (GameCanvas.height / 8));
+					GameCanvasCxt.fillText("YOUR FATE IS SEALED!", GameCanvas.width / 4, GameCanvas.height - (GameCanvas.height / 9));
 				} else if (CutsceneFrames < 60) {
 					SubGameMode = 0;
 					MenuID = "CORE_SELECT";
@@ -1074,14 +1074,14 @@ function drawDialog()
 					GameCanvasCxt.font = "6px 'Press Start 2P'";
 					GameCanvasCxt.fillText("I've thought about it", GameCanvas.width / 4, GameCanvas.height - (GameCanvas.height / 5));
 					GameCanvasCxt.fillText("more, this artificial", GameCanvas.width / 4, GameCanvas.height - (GameCanvas.height / 7));
-					GameCanvasCxt.fillText("world.", GameCanvas.width / 4, GameCanvas.height - (GameCanvas.height / 10));
+					GameCanvasCxt.fillText("world.", GameCanvas.width / 4, GameCanvas.height - (GameCanvas.height / 11));
 				} else if (CutsceneFrames < 28) {
 					GameCanvasCxt.drawImage(document.getElementById("GUI_FULL"), 168, 120, 72, 32, GameCanvas.width / 6, GameCanvas.height - (GameCanvas.height / 3), 200, 50);
 					GameCanvasCxt.fillStyle = "#FF0000";
 					GameCanvasCxt.font = "6px 'Press Start 2P'";
 					GameCanvasCxt.fillText("At first, I wanted",  GameCanvas.width / 4, GameCanvas.height - (GameCanvas.height / 5));
 					GameCanvasCxt.fillText("simply to cleanse you", GameCanvas.width / 4, GameCanvas.height - (GameCanvas.height / 7));
-					GameCanvasCxt.fillText("from this world for", GameCanvas.width / 4, GameCanvas.height - (GameCanvas.height / 10));
+					GameCanvasCxt.fillText("from this world for", GameCanvas.width / 4, GameCanvas.height - (GameCanvas.height / 11));
 					GameCanvasCxt.fillText("refusing reality.", GameCanvas.width / 4, GameCanvas.height - (GameCanvas.height / 20));
 				} else if (CutsceneFrames < 36) {
 					GameCanvasCxt.drawImage(document.getElementById("GUI_FULL"), 168, 120, 72, 32, GameCanvas.width / 6, GameCanvas.height - (GameCanvas.height / 3), 200, 50);
