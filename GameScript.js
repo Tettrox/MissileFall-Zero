@@ -1674,7 +1674,7 @@ function drawScreen()
 	for (var i = 0; i < Entities.length; i++)
 	{
 		//This is getting to the point where it may be worth it to change it to just not render them during *ANY* menu. Might create pause menu issues, but that would probably be cleaner to solve.
-		if (Entities[i].EntityTag == "BackgroundFireball" && SubGameMode != 6 && MenuID != "ROM_MENU" && MenuID != "ABOUT")
+		if (Entities[i].EntityTag == "BackgroundFireball" && SubGameMode != 6 && MenuID != "ROM_MENU" && MenuID != "ABOUT" && SubGameMode != 3)
 		{
 			GameCanvasCxt.drawImage(Entities[i].getSprite(), Entities[i].ClipX, Entities[i].ClipY, Entities[i].EntityWidth, Entities[i].EntityHeight, Entities[i].getXLoc(), Entities[i].getYLoc(), Entities[i].EntityWidth, Entities[i].EntityHeight);
 		}
